@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   execute_script:
@@ -15,7 +15,7 @@ jobs:
             python3 sandbox/json_builder.py
 
 workflows:
-  version: 2
+  version: 2.1
   scheduled-workflow:
     triggers:
       - schedule:
@@ -24,6 +24,5 @@ workflows:
             branches:
               only:
                 - master
-
     jobs:
       - execute_script
