@@ -17,5 +17,7 @@ json_data['people'].append({
     'from': 'Alabama'
 })
 
+print(json_data)
+
 with open('data.json', 'w') as outfile:
     json.dump(json_data, outfile)
