@@ -16,10 +16,10 @@ jobs:
   execute_script:
     steps:
       - run:
-        name: execute simple Python script
-        command: |
-          . venv/bin/activate
-          python3 sandbox/json_builder.py
+          name: execute simple Python script
+          command: |
+            . venv/bin/activate
+            python3 sandbox/json_builder.py
 
 workflows:
   version: 2
