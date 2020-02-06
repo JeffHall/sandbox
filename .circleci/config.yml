@@ -1,4 +1,5 @@
 version: 2
+
 jobs:
   build:
     docker:
@@ -11,8 +12,22 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-      - run:
-         name: execute simple Python script
-         command: |
-           . venv/bin/activate
-           python3 sandbox/json_builder.py
+
+  execute_script:
+    - run:
+      name: execute simple Python script
+      command: |
+        . venv/bin/activate
+        python3 sandbox/json_builder.py
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "20 * * * *"
+    jobs:
+      - execute_script
