@@ -4,7 +4,7 @@ orbs:
   sauce-connect: saucelabs/sauce-connect@1.0.1
 
 jobs:
-  execute_script:
+  execute_test:
     docker:
       - image: circleci/python:3.7.5
     steps:
@@ -26,7 +26,9 @@ jobs:
             bin/sc -u ${SAUCELABS_USER} -k ${SAUCELABS_KEY}
             wget --retry-connrefused --no-check-certificate -T 60 localhost:4445  # wait for app to be ready
       - run:
-          command: pytest tests/
+          command: |
+            cd ..
+            pytest tests/
       - run:
           name: Shut Down Sauce Connect Tunnel
           command: |
@@ -36,10 +38,10 @@ workflows:
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "40 6 * * *"
+          cron: "00 11 * * *"
           filters:
             branches:
               only:
                 - master
     jobs:
-      - execute_script
+      - execute_test
