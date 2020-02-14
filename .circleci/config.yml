@@ -1,5 +1,12 @@
 version: 2.1
 
+jobs:
+  execute_test:
+    docker:
+      - image: circleci/python:3.7.5
+    steps:
+      - checkout
+
 orbs:
   sauce-connect: saucelabs/sauce-connect@1.0.1
 
