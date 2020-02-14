@@ -1,0 +1,30 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "Really just a sandbox, not a whole lot more than that.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffHall/sandbox.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffHall/sandbox/issues"
+  },
+  "homepage": "https://github.com/JeffHall/sandbox#readme",
+  "devDependencies": {
+    "@wdio/cli": "^5.18.7",
+    "@wdio/local-runner": "^5.18.7",
+    "@wdio/mocha-framework": "^5.18.7",
+    "@wdio/sauce-service": "^5.16.10",
+    "@wdio/spec-reporter": "^5.18.7",
+    "@wdio/sync": "^5.18.7",
+    "chromedriver": "^80.0.1",
+    "wdio-chromedriver-service": "^5.0.2"
+  }
+}

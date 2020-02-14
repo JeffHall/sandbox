@@ -7,3 +7,6 @@ __pycache__/
 
 ## Directory-based project format:
 .idea/
+
+# Node.js things
+node_modules
