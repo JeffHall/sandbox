@@ -32,13 +32,5 @@ jobs:
             kill -9 `cat /tmp/sc_client.pid` 
 
 workflows:
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "40 15 * * *"
-          filters:
-            branches:
-              only:
-                - master
     jobs:
       - execute_test
