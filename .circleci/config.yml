@@ -1,16 +1,12 @@
 version: 2.1
 
-orbs:
-  sauce-connect: saucelabs/sauce-connect@1.0.1
-
-workflows:
-  browser_tests:
-    jobs:
-      - sauce-connect/with_proxy:
-          docker: 'circleci/node:12.12.0'
-          steps:
-            - run: 
-                command: |
-                  npm install
-                  ./node_modules/.bin/wdio wdio.conf.js
-          version: 4.5.4
+jobs:
+  build:
+    docker: 
+      - image: circleci/node:12.12.0
+    steps:
+      - checkout
+      - run: 
+          command: |
+            npm install
+            ./node_modules/.bin/wdio wdio.conf.js
