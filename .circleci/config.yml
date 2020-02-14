@@ -30,3 +30,8 @@ jobs:
           name: Shut Down Sauce Connect Tunnel
           command: |
             kill -9 `cat /tmp/sc_client.pid`
+workflows:
+  version: 2
+  execute_test_workflow:
+    jobs:
+      - execute_test
