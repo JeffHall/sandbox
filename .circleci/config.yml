@@ -10,13 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: execute simple pytest script
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-            python3 sandbox/json_builder.py
-      - run:
           name: Install Sauce Labs and Set Up Tunnel
           background: true
           command: |
@@ -26,7 +19,11 @@ jobs:
             bin/sc -u ${SAUCELABS_USER} -k ${SAUCELABS_KEY}
             wget --retry-connrefused --no-check-certificate -T 60 localhost:4445  # wait for app to be ready
       - run:
+          name: execute simple pytest script
           command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
             cd ..
             pytest tests/
       - run:
@@ -38,7 +35,7 @@ workflows:
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "00 11 * * *"
+          cron: "40 15 * * *"
           filters:
             branches:
               only:
