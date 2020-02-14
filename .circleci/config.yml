@@ -3,34 +3,15 @@ version: 2.1
 orbs:
   sauce-connect: saucelabs/sauce-connect@1.0.1
 
-jobs:
-  execute_test:
-    docker:
-      - image: circleci/python:3.7.5
-    steps:
-      - checkout
-      - run:
-          name: Install Sauce Labs and Set Up Tunnel
-          background: true
-          command: |
-            curl https://saucelabs.com/downloads/sc-4.5.4-linux.tar.gz -o saucelabs.tar.gz
-            tar -xzf saucelabs.tar.gz
-            cd sc-*
-            bin/sc -u ${SAUCELABS_USER} -k ${SAUCELABS_KEY}
-            wget --retry-connrefused --no-check-certificate -T 60 localhost:4445  # wait for app to be ready
-      - run:
-          name: execute simple pytest script
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-            pytest tests/
-      - run:
-          name: Shut Down Sauce Connect Tunnel
-          command: |
-            kill -9 `cat /tmp/sc_client.pid`
 workflows:
-  version: 2
-  execute_test_workflow:
+  browser_tests:
     jobs:
-      - execute_test
+      - sauce-connect/with_proxy:
+          steps:
+            - run: 
+                command: |
+                  python3 -m venv venv
+                  . venv/bin/activate
+                  pip install -r requirements.txt
+                  pytest tests/
+          version: 4.5.4
