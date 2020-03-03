@@ -18,16 +18,16 @@ exports.config = {
             waitforTimeout: 600,
             commandTimeout: 600,
         },
-        {
-            browserName: 'Safari',
-            appiumVersion: '1.15.0',
-            deviceName: 'iPhone 11 Pro Simulator',
-            deviceOrientation: 'portrait',
-            platformVersion: '13.0',
-            platformName: 'iOS',
-            waitforTimeout: 600,
-            commandTimeout: 600,
-        }
+        // {
+        //     browserName: 'Safari',
+        //     appiumVersion: '1.15.0',
+        //     deviceName: 'iPhone 11 Pro Simulator',
+        //     deviceOrientation: 'portrait',
+        //     platformVersion: '13.0',
+        //     platformName: 'iOS',
+        //     waitforTimeout: 600,
+        //     commandTimeout: 600,
+        // }
     ],
     sync: true,
     logLevel: 'info',
