@@ -1,7 +1,7 @@
 {
   "name": "sandbox",
   "version": "1.0.0",
-  "description": "Really just a sandbox, not a whole lot more than that.",
+  "description": "Proof-of-concept for Skylight mobile tests run via SauceLabs",
   "main": "index.js",
   "directories": {
     "test": "tests"

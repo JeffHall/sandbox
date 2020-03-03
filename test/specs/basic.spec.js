@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-describe('Skylight production login', () => {
+describe('Skylight integration environment login', () => {
 
     beforeEach(function () {
         // Mobile emulator spawning via SauceLabs can be slow
@@ -9,7 +9,7 @@ describe('Skylight production login', () => {
 
 
     it('Title page value should be: Skylight', function (done) {
-        browser.url('https://ap-production.skylight.earth/login?captcha=false')
+        browser.url('https://ap-integration.skylight.earth/login?captcha=false')
 
         $('#username').setValue('jeffh@vulcan.com');
         $('#password').setValue('fluBdew8');
