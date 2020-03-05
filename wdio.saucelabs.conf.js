@@ -2,7 +2,7 @@ exports.config = {
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
     region: 'us',
-    sauceConnect: true, // This needs to be 'true' for Skylight integration and release environments
+    sauceConnect: false, // This needs to be 'true' for Skylight integration and release environments
     specs: [
         './test/specs/**/*.js'
     ],
