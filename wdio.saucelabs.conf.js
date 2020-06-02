@@ -4,7 +4,7 @@ exports.config = {
     region: 'us',
     sauceConnect: false, // This needs to be 'true' for Skylight integration and release environments
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/*.js'
     ],
     maxInstances: 10,
     capabilities: [
